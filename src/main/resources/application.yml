@@ -1,0 +1,38 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+
+logging:
+  level:
+    root: INFO
+    com:
+      jpworks:
+        datajdbc: DEBUG
+
+# expose actuator endpoint via HTTP
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health,camel
+
+#By default the path for cxf is: /services
+cxf:
+  #Overriding the default path
+  path: /soap
+
+# the name of Camel
+camel:
+  springboot:
+    name: MyCamel
+
+# what to say
+greeting: Hello World
+
+# how often to trigger the timer (millis)
+myPeriod: 2000
+
+spring:
+  profiles:
+    active: local
